@@ -1,0 +1,4 @@
+.vscode/*
+
+docker/dotnet/app/obj/*
+docker/dotnet/app/bin/*
