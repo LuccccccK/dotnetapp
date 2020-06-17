@@ -4,20 +4,20 @@
 <link href="@Url.Content("~/css/home/index.css")" rel="stylesheet" type="text/css" />
 <script src="@Url.Content("~/js/home/index.js")" type="text/javascript"></script>
 <div id="app">
-    <div class="flex">
-        <input v-model="message" type="text" class="form-control">
-        <h1>{{ message }}</h1>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">value1:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" v-model="value_1">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">value2:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" v-model="value_2">
     </div>
     <div class="flex">
-        <input v-model="calculate_value_1" type="text" class="form-control">
-        <h1>{{ calculate_value_1 }}</h1>
+        <button type="button" class="btn btn-primary" v-on:click="calculate">calculate</button>
+        <label>Result: {{ result }}</label>
     </div>
-    <div class="flex">
-        <input v-model="calculate_value_2" type="text" class="form-control">
-        <h1>{{ calculate_value_2 }}</h1>
-    </div>
-    <div class="flex">
-        <h1>{{ calculate_result }}</h1>
-    </div>
-    <button name="calculate" v-on:click="calculate_click">ボタン</button>
 </div>

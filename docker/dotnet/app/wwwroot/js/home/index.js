@@ -2,13 +2,12 @@ document.addEventListener("DOMContentLoaded", function(){
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Hello world',
-            calculate_value_1: '',
-            calculate_value_2: '',
-            calculate_result: ''
+            value_1: '',
+            value_2: '',
+            result: ''
         },
         methods:{
-            calculate_click: function(){
+            calculate: function(){
                 config = {
                     headers:{
                         'X-Requested-With': 'XMLHttpRequest',
@@ -16,15 +15,21 @@ document.addEventListener("DOMContentLoaded", function(){
                     },
                     withCredentials:true,
                 }
-                param = {}
+                let params = new URLSearchParams();
+                params.append('Value1', this.value_1);
+                params.append('Value2', this.value_2);
 
-                let url = "/Home/Sample"
-                axios.get(url, config)
+                let url = "/Home/Calculate"
+                axios.post(url, params, config)
                     .then(function(res){
-                        app.calculate_result = res.data
+                        if(res.data.errorFlg == true) {
+                            app.result = res.data.errorMessage;    
+                        } else {
+                            app.result = res.data.result;
+                        }
                     })
-                    .catch(function(res){
-                        app.calculate_result = res.data
+                    .catch(function(error){
+                        console.log(error)
                     })
             }
         }
