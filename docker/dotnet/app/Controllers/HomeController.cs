@@ -28,6 +28,12 @@ namespace app.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Sample()
+        {
+            return Json("chamara");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
