@@ -2,3 +2,6 @@
 
 docker/dotnet/app/obj/*
 docker/dotnet/app/bin/*
+
+shared/logs/*
+!shared/logs/.gitkeep
